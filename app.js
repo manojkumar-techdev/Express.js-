@@ -21,8 +21,7 @@ app.listen(3200);
 
 
 // Using Express.JS - Method 1
-// Express JS Work Flow
-// Express is a function
+// creating a server
 // Recommended method
 const express = require('express');
 const app = express();
@@ -34,12 +33,21 @@ app.listen(3400, () => {
 
 
 // Using Express.JS - Method 2
-// Express JS Work Flow
-// Express is a function
+// creating aserver
 const app = require('express')();
 
 app.listen(3400, () => {
     console.log('Server is running on port 3400');
 });
 
+
+
+// Logging a large object 
+// A function with many attached methods
+const express = require('express');
+const app = express();
+console.log(app);
+app.listen(3400, () => {
+    console.log('Server is running on port 3400');
+});
 

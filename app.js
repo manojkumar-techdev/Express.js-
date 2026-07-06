@@ -51,3 +51,47 @@ app.listen(3400, () => {
     console.log('Server is running on port 3400');
 });
 
+
+// Creating server 
+// Without Route Path and a Callback function
+const express = require('express')
+const app = express();
+
+app.get("");
+app.listen(4800);
+
+
+
+// Creating server
+// App.get(path, callback);
+// Path → the URL path (e.g., /)
+// Callback → a function that runs when a request is made to that path
+
+const express = require('express')
+const app = express();
+
+// Route path
+app.get("/", (req, resp) => {
+    resp.send("Hello, World")
+});
+
+// Route path
+app.get("/about", (req, resp) => {
+    resp.send("About Page")
+});
+
+// Route path
+app.get("/contact", (req, resp) => {
+    resp.send("Contact Page")
+});
+
+// Route path
+app.get("/team", (req, resp) => {
+    resp.send("<h3>My Team</h3>")
+});
+
+app.listen(4800, () => {
+    console.log('Server is running on port 4800');
+});
+
+

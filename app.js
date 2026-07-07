@@ -95,3 +95,25 @@ app.listen(4800, () => {
 });
 
 
+
+/ When two or more Routes are same
+// first one preferred
+
+const express = require('express')
+const app = express();
+
+// Route path
+app.get("", (req, resp) => {
+    resp.send("Hello, World1")
+});
+
+// Route path
+app.get("", (req, resp) => {
+    resp.send("Hello, World2")
+});
+
+
+app.listen(4800, () => {
+    console.log('Server is running on port 4800');
+});
+

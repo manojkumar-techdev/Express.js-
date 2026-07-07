@@ -191,3 +191,38 @@ app.get("/about", (req, resp) => {
 
 app.listen(3400);
 
+
+
+// Render HTML Elements or Forms
+// Form can be impoted from another file
+import express from 'express';
+const app = express();
+
+app.get("/", (req, resp) => {
+    resp.send("<h1>Home Page</h1>");
+})
+
+app.get("/login", (req, resp) => {
+    resp.send(`
+        
+        <form action="/submit" method="post">
+
+        <input type='text' placeholder='Enter Name'>
+        <br /><br />
+
+        <input type='password' placeholder='Enter Password'>
+        <br /><br />
+
+        <button>LogIn</button>
+
+        </form>
+        `);
+})
+
+app.post("/submit", (req, resp) => {
+    resp.send("<h1>Data Submitted</h1>");
+})
+
+app.listen(3200);
+
+

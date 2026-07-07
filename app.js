@@ -148,3 +148,21 @@ app.get("/about", (req, resp) => {
 
 app.listen(3200);
 
+
+// import export another js file
+import express from 'express';
+import home, { team } from './pages/home.js';
+
+const app = express();
+
+app.get("", (req, resp) => {
+    resp.send(home())
+})
+
+app.get("/about", (req, resp) => {
+    resp.send("<h2>About Page</h2>")
+})
+
+app.listen(3400);
+
+

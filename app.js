@@ -117,3 +117,34 @@ app.listen(4800, () => {
     console.log('Server is running on port 4800');
 });
 
+
+
+// Import Methods
+// Vanilla JS Script - Old-fashioned
+const express = require('express');
+// Exma Script - Modern
+import express from 'express';
+
+
+
+// Package.json --> type --> common.js
+// Change type to --> module
+// Now can use ECMA Script import method
+
+
+// import function
+import express from 'express';
+import home from './home.js';
+
+const app = express();
+
+app.get("", (req, resp) => {
+    resp.send(home())
+});
+
+app.get("/about", (req, resp) => {
+    resp.send('<h2>About page</h2>')
+});
+
+app.listen(3200);
+

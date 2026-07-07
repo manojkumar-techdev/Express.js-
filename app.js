@@ -166,3 +166,28 @@ app.get("/about", (req, resp) => {
 app.listen(3400);
 
 
+
+// imporing multiple modules from one file
+import express from 'express';
+import home, { contact, team } from './pages/home.js';
+
+const app = express();
+
+app.get("", (req, resp) => {
+    resp.send(home())
+})
+
+app.get("/contact", (req, resp) => {
+    resp.send(contact())
+})
+
+app.get("/team", (req, resp) => {
+    resp.send(team())
+})
+
+app.get("/about", (req, resp) => {
+    resp.send("<h2>About Page</h2>")
+})
+
+app.listen(3400);
+

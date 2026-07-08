@@ -389,3 +389,37 @@ app.listen(1000, () => {
     console.log("Server running on http://localhost:1000");
 });
 
+
+
+// ++++++++++++++++++++++++++++
+// Use path.join()
+// It automatically adds the correct path separator 
+// path separator (/ on Linux/macOS, \ on Windows)
+// so it's safer than string concatenation.
+import express from 'express';
+import path from 'path';
+
+const app = express();
+
+const absPath = path.resolve('view');
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(absPath, "home.html"));
+});
+
+app.get("/login", (req, res) => {
+    res.sendFile(path.join(absPath, "login.html"));
+});
+
+app.get("/about", (req, res) => {
+    res.sendFile(path.join(absPath, "about.html"));
+});
+
+// 404 page
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(absPath, "404.html"));
+});
+
+app.listen(1000, () => {
+    console.log("Server running on http://localhost:1000");
+});

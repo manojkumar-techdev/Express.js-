@@ -283,3 +283,44 @@ export default function submit() {
     return "<h2>Data Submitted</h2>"
 }
 
+
+// Routing to a specific page
+export default function home() {
+    return "<h2>Home Page Ready</h2> <a href='login'>Go To Login Page</a>";
+}
+
+
+
+// +++++++++++++++++++
+// Render HTML file
+import express from 'express';
+import path from 'path';
+
+const app = express();
+
+// to load pages in browser
+// use get method
+app.get("/", (req, resp) => {
+    const absPath = path.resolve('view/home.html');
+    console.log(absPath);
+    // Error - Absolute path
+    resp.sendFile(absPath);
+})
+
+
+app.get("/login", (req, resp) => {
+    const absPath = path.resolve('view/login.html');
+    console.log(absPath);
+    // Error - Absolute path
+    resp.sendFile(absPath);
+})
+
+
+app.get("/about", (req, resp) => {
+    const absPath = path.resolve('view/about.html');
+    console.log(absPath);
+    // Error - Absolute path
+    resp.sendFile(absPath);
+})
+
+app.listen(1000);

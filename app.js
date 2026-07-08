@@ -324,3 +324,34 @@ app.get("/about", (req, resp) => {
 })
 
 app.listen(1000);
+
+
+
+// Make 404 Pagee
+// When page not find - Show 404 error or page not found
+
+import express from 'express';
+import path from 'path';
+
+const app = express();
+
+app.get("/", (req, res) => {
+    res.sendFile(path.resolve("view/home.html"));
+});
+
+app.get("/login", (req, res) => {
+    res.sendFile(path.resolve("view/login.html"));
+});
+
+app.get("/about", (req, res) => {
+    res.sendFile(path.resolve("view/about.html"));
+});
+
+// 404 Page (must be the last route)
+app.use((req, res) => {
+    res.status(404).sendFile(path.resolve("view/404.html"));
+});
+
+app.listen(1000, () => {
+    console.log("Server running on http://localhost:1000");
+});

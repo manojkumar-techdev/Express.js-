@@ -226,3 +226,31 @@ app.post("/submit", (req, resp) => {
 app.listen(3200);
 
 
+
+// +++++++++++++++++++++
+// Importing lelement and forms from other files
+import express from 'express';
+import home, { contact, team } from './pages/home.js';
+import login from './pages/login.js';
+import submit from './pages/submit.js';
+
+const app = express();
+
+app.get("/", (req, resp) => {
+    resp.send(home())
+})
+
+app.get("/login", (req, resp) => {
+    resp.send(login())
+})
+
+app.post("/submit", (req, resp) => {
+    resp.send(submit())
+})
+
+app.get("/about", (req, resp) => {
+    resp.send("<h2>About Page</h2>")
+})
+
+app.listen(3400);
+

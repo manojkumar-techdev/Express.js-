@@ -355,3 +355,37 @@ app.use((req, res) => {
 app.listen(1000, () => {
     console.log("Server running on http://localhost:1000");
 });
+
+
+// ++++++++++++++++++++++++++++
+// path.resolve() directly
+// Make 404 Pagee
+// When page not find - Show 404 error or page not found
+
+import express from 'express';
+import path from 'path';
+
+const app = express();
+const absPath = path.resolve('view');
+
+app.get("/", (req, res) => {
+    res.sendFile(absPath + "/home.html")
+});
+
+app.get("/login", (req, res) => {
+    res.sendFile(absPath + "/login.html")
+});
+
+app.get("/about", (req, res) => {
+    res.sendFile(absPath + "/about.html")
+});
+
+// 404 Page (must be the last route)
+app.use((req, res) => {
+    res.status(404).sendFile(absPath + "/404.html")
+});
+
+app.listen(1000, () => {
+    console.log("Server running on http://localhost:1000");
+});
+

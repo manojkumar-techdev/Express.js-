@@ -254,3 +254,32 @@ app.get("/about", (req, resp) => {
 
 app.listen(3400);
 
+
+/ home.js - another file for import
+export default function () {
+    return "<h2>Home Page</h2> <a href = 'login'>Go to Login</a>"
+}
+
+
+// login.js - another file for import
+export default function login() {
+    return `<form action="/submit" method="post">
+    
+    <input type='text' name="username" placeholder='Enter Name'>
+    <br /><br />
+    
+    <input type='password' name="username" placeholder='Enter Password'>
+    <br /><br />
+    
+    <button>LogIn</button>
+    
+    </form>`
+}
+
+
+
+// submit.js - another file for import
+export default function submit() {
+    return "<h2>Data Submitted</h2>"
+}
+
